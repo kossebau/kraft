@@ -115,6 +115,8 @@ set(kraft_SRCS
     documenttemplate.cpp
     pdfconverter.cpp
     format.cpp
+    extravariablesmodel.cpp
+    comboboxitemdelegate.cpp
 )
 
 kconfig_add_kcfg_files(kraft_SRCS
