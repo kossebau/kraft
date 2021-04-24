@@ -340,6 +340,8 @@ void KraftView::redrawDocument( )
     m_footerEdit->ui()->m_teSummary->setText( doc->postText() );
     const QString goodbye = doc->goodbye();
     m_footerEdit->slotSetGreeting(goodbye);
+    auto extraVars = doc->extraVariables();
+    m_footerEdit->setExtraVariables(extraVars);
 
     mAssistant->slotSetDocType( doc->docType() );
 
@@ -1379,6 +1381,8 @@ void KraftView::saveChanges()
     doc->setSalut(    m_headerEdit->m_letterHead->currentText() );
     doc->setPostText( m_footerEdit->ui()->m_teSummary->toPlainText() );
     doc->setGoodbye(  m_footerEdit->greeting() );
+
+    doc->setExtraVariables( m_footerEdit->extraVariables());
 
     DocPositionList list = currentPositionList();
     doc->setPositionList( list );
